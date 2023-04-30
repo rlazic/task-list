@@ -22,6 +22,20 @@ function deleteTask(index) {
   renderTaskList();
 }
 
+function hideCompletedTasks() {
+  const taskListElement = document.getElementById("task-list");
+  taskListElement.querySelectorAll(".completed").forEach((taskItem) => {
+    taskItem.style.display = "none";
+  });
+}
+
+function showCompletedTasks() {
+  const taskListElement = document.getElementById("task-list");
+  taskListElement.querySelectorAll(".completed").forEach((taskItem) => {
+    taskItem.style.display = "";
+  });
+}
+
 function renderTaskList() {
   const taskListElement = document.getElementById("task-list");
   taskListElement.innerHTML = "";
@@ -47,4 +61,14 @@ newTask.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
     addTask();
   }
+});
+
+const hideCompletedButton = document.getElementById("hide-completed-button");
+hideCompletedButton.addEventListener("click", () => {
+  hideCompletedTasks();
+});
+
+const showCompletedButton = document.getElementById("show-completed-button");
+showCompletedButton.addEventListener("click", () => {
+  showCompletedTasks();
 });
