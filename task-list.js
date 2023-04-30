@@ -1,12 +1,12 @@
 let taskList = [];
 
 function addTask() {
-  const newTaskInput = document.getElementById("new-task");
-  const newTaskName = newTaskInput.value.trim();
+  const newTask = document.getElementById("new-task");
+  const newTaskName = newTask.value.trim();
   
   if (newTaskName) {
     taskList.push({ name: newTaskName, completed: false });
-    newTaskInput.value = "";
+    newTask.value = "";
 
     renderTaskList();
   }
@@ -42,3 +42,9 @@ function renderTaskList() {
     taskItem.insertBefore(checkbox, taskItem.firstChild);
   });
 }
+const newTaskInput = document.getElementById("new-task");
+newTask.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    addTask();
+  }
+});
