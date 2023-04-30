@@ -32,6 +32,7 @@ function renderTaskList() {
     if (task.completed) {
       taskItem.classList.add("completed");
     }
+    taskItem.style.listStyleType = "none";
     taskListElement.appendChild(taskItem);
 
     const checkbox = document.createElement("input");
