@@ -1,15 +1,20 @@
 let taskList = [];
 
 function addTask() {
-  const newTask = document.getElementById("new-task");
-  const newTaskName = newTask.value.trim();
+  const newTaskInput = document.getElementById("new-task");
+  const newTaskName = newTaskInput.value.trim();
   
   if (newTaskName) {
-    taskList.push(newTaskName);
-    newTask.value = "";
+    taskList.push({ name: newTaskName, completed: false });
+    newTaskInput.value = "";
 
     renderTaskList();
   }
+}
+
+function toggleCompleted(index) {
+  taskList[index].completed = !taskList[index].completed;
+  renderTaskList();
 }
 
 function deleteTask(index) {
@@ -21,13 +26,18 @@ function renderTaskList() {
   const taskListElement = document.getElementById("task-list");
   taskListElement.innerHTML = "";
 
-  taskList.forEach((taskName, index) => {
+  taskList.forEach((task, index) => {
     const taskItem = document.createElement("li");
-    taskItem.innerText = taskName;
-    const deleteButton = document.createElement("button");
-    deleteButton.innerText = "Delete";
-    deleteButton.addEventListener("click", () => deleteTask(index));
-    taskItem.appendChild(deleteButton);
+    taskItem.innerText = task.name;
+    if (task.completed) {
+      taskItem.classList.add("completed");
+    }
     taskListElement.appendChild(taskItem);
+
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.checked = task.completed;
+    checkbox.addEventListener("change", () => toggleCompleted(index));
+    taskItem.insertBefore(checkbox, taskItem.firstChild);
   });
 }
