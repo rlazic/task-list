@@ -7,7 +7,6 @@ function addTask() {
   if (newTaskName) {
     taskList.push({ name: newTaskName, completed: false });
     newTask.value = "";
-
     renderTaskList();
   }
 }
@@ -46,9 +45,9 @@ function renderTaskList() {
     if (task.completed) {
       taskItem.classList.add("completed");
     }
+    
     taskItem.style.listStyleType = "none";
     taskListElement.appendChild(taskItem);
-
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     checkbox.checked = task.completed;
@@ -56,6 +55,7 @@ function renderTaskList() {
     taskItem.insertBefore(checkbox, taskItem.firstChild);
   });
 }
+
 const newTaskInput = document.getElementById("new-task");
 newTask.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
