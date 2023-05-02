@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-  
   <script src="task-list.js"></script>
    <style>
       .completed {
@@ -9,28 +8,26 @@
       }
     </style>
 </head>
+
 <body>
-	<h1>Task List</h1>
+    <h1>Task List</h1>
     <div>
       <label for="checklistNameInput">Checklist Name:</label>
       <input type="text" id="checklistNameInput">
       <button id="enterNameButton">Enter Name</button>
     </div>
+    
     <br>
     <button type="button" id="hide-completed-button">Hide completed tasks</button>
     <button type="button" id="show-completed-button">Show completed tasks</button>
     
-	<form>
-  <br>
-		<label for="new-task">Add a task:</label>
-		<input type="text" id="new-task" placeholder="Enter task here">
-		<button type="button" onclick="addTask()">Add Task</button>
+    <form>
+  	<br>
+	<label for="new-task">Add a task:</label>
+	<input type="text" id="new-task" placeholder="Enter task here">
+	<button type="button" onclick="addTask()">Add Task</button>
 	</form>
-	<ul id="task-list"></ul>
-
-	
-</body>
-</html>
+<ul id="task-list"></ul>
 	
 </body>
 </html>
