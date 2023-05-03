@@ -1,3 +1,9 @@
+function taskListName() {
+	const listName = document.getElementById("checklistNameInput").value;
+  document.getElementById("ListName").innerHTML = listName;
+  
+}
+
 let taskList = [];
 
 function addTask() {
@@ -21,6 +27,15 @@ function deleteTask(index) {
   renderTaskList();
 }
 
+const hideCompletedButton = document.getElementById("hide-completed-button");
+hideCompletedButton.addEventListener("click", () => {
+  hideCompletedTasks();
+});
+
+const showCompletedButton = document.getElementById("show-completed-button");
+showCompletedButton.addEventListener("click", () => {
+  showCompletedTasks();
+});
 function hideCompletedTasks() {
   const taskListElement = document.getElementById("task-list");
   taskListElement.querySelectorAll(".completed").forEach((taskItem) => {
@@ -55,20 +70,3 @@ function renderTaskList() {
     taskItem.insertBefore(checkbox, taskItem.firstChild);
   });
 }
-
-const newTaskInput = document.getElementById("new-task");
-newTask.addEventListener("keydown", (event) => {
-  if (event.key === "Enter") {
-    addTask();
-  }
-});
-
-const hideCompletedButton = document.getElementById("hide-completed-button");
-hideCompletedButton.addEventListener("click", () => {
-  hideCompletedTasks();
-});
-
-const showCompletedButton = document.getElementById("show-completed-button");
-showCompletedButton.addEventListener("click", () => {
-  showCompletedTasks();
-});
