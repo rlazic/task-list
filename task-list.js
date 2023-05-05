@@ -1,3 +1,4 @@
+//Enter name of the task list
 function taskListName() {
 	const listName = document.getElementById("checklistNameInput").value;
   document.getElementById("ListName").innerHTML = listName;
@@ -6,6 +7,7 @@ function taskListName() {
 
 let taskList = [];
 
+//Add new task
 function addTask() {
   const newTask = document.getElementById("new-task");
   const newTaskName = newTask.value.trim();
@@ -27,6 +29,7 @@ function deleteTask(index) {
   renderTaskList();
 }
 
+//Hiding and showing completed tasks
 const hideCompletedButton = document.getElementById("hide-completed-button");
 hideCompletedButton.addEventListener("click", () => {
   hideCompletedTasks();
@@ -50,6 +53,7 @@ function showCompletedTasks() {
   });
 }
 
+//Checkbox function for each item on the checklist
 function renderTaskList() {
   const taskListElement = document.getElementById("task-list");
   taskListElement.innerHTML = "";
