@@ -4,5 +4,14 @@
 
 h2 {
         font-weight: bold;
-        font-size: 30px
+        font-size: 30px;
+}
+
+hr  {
+  height: 3px;
+  background-color: #b7d0e2;
+}
+
+h1 {
+  color: #b7d0e2;
 }
