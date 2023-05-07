@@ -1,17 +1,21 @@
+/*Completed tasks/checked off tasks*/
 .completed {
         text-decoration: line-through;
       }
 
+/*Name of the task list*/
 h2 {
         font-weight: bold;
         font-size: 30px;
 }
 
+/*Breakline*/
 hr  {
   height: 3px;
   background-color: #b7d0e2;
 }
 
+/*Main title*/
 h1 {
   color: #b7d0e2;
 }
